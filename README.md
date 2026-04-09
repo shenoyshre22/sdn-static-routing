@@ -111,6 +111,14 @@ This proves that:
 ![Iperf Output](results/iperf.png)
 
 ---
+### 6. Failure Scenario (Without Controller)
+
+When the controller is not running, switches do not have any flow rules installed. As a result, packets cannot be forwarded between hosts.
+
+This demonstrates that the network behavior is completely dependent on the SDN controller.
+
+![Failure Ping](results/failure_ping.png)
+---
 
 ## Explanation
 
