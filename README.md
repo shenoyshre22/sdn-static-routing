@@ -13,15 +13,15 @@ Implement static routing using SDN controller by installing flow rules manually.
 ---
 
 ## Setup
-sudo apt install mininet  
-pip3 install ryu  
+`sudo apt install mininet`  
+`pip3 install ryu` 
 
 ---
 
 ## Run
-ryu-manager controller/static_controller.py  
+`ryu-manager controller/static_controller.py`  
 
-sudo mn --custom topology/topo.py --topo static --controller remote  
+`sudo mn --custom topology/topo.py --topo static --controller remote` 
 
 ---
 
