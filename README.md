@@ -89,7 +89,7 @@ Flow tables define how packets are handled by switches. These rules are installe
 - Packets from s1 are forwarded to host h2  
 - Reverse traffic is sent back to s1  
 
-![Flow Table s2](results/flows_s2.png)
+![Flow Table s2](results/flow_s2.png)
 
 These entries clearly demonstrate **match-action rules**, where:
 - match → input port  
