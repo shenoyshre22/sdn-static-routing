@@ -133,4 +133,4 @@ This proves that:
 ---
 
 ## Results Folder
-Screenshots are also available in the `results/` folder.
+Screenshots are also available in the `results` folder for reference.
