@@ -98,6 +98,25 @@ These entries clearly demonstrate **match-action rules**, where:
 This confirms that routing is **static**, not dynamically learned.
 
 ---
+The `iperf` tool is used to measure throughput between hosts.  
+The output shows successful connection and data transfer between h1 and h2.
+
+This proves that:
+- network is not only connected  
+- but also capable of handling data transfer efficiently  
+
+![Iperf Output](results/iperf.png)
+
+---
+### 6. Failure Scenario (Without Controller)
+
+When the controller is not running, switches do not have any flow rules installed. As a result, packets cannot be forwarded between hosts.
+
+This demonstrates that the network behavior is completely dependent on the SDN controller.
+
+![Failure Ping](results/failure_ping.png)
+---
+
 ## Commands Executed
 
 ### 1. Clone Repository
@@ -152,26 +171,6 @@ now test connectivity only to get ping failing cause of flow rules
 ```bash
 pingall
 ```
-
-
-
-The `iperf` tool is used to measure throughput between hosts.  
-The output shows successful connection and data transfer between h1 and h2.
-
-This proves that:
-- network is not only connected  
-- but also capable of handling data transfer efficiently  
-
-![Iperf Output](results/iperf.png)
-
----
-### 6. Failure Scenario (Without Controller)
-
-When the controller is not running, switches do not have any flow rules installed. As a result, packets cannot be forwarded between hosts.
-
-This demonstrates that the network behavior is completely dependent on the SDN controller.
-
-![Failure Ping](results/failure_ping.png)
 ---
 
 ## Explanation
