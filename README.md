@@ -98,8 +98,62 @@ These entries clearly demonstrate **match-action rules**, where:
 This confirms that routing is **static**, not dynamically learned.
 
 ---
+## Commands Executed
 
+### 1. Clone Repository
+```bash
+cd ~/Desktop
+git clone https://github.com/shenoyshree22/sdn-static-routing.git
+cd sdn-static-routing
 ### 5. Performance Testing (iperf)
+```
+### 2.Install Dependencies
+```bash
+sudo apt update
+sudo apt install python3-pip mininet -y
+pip3 install ryu
+```
+### 3.Fix Ryu Dependency Issue (for my VM due to compatibility)
+```bash
+pip3 uninstall eventlet -y
+pip3 install eventlet==0.30.2
+pip3 install greenlet==1.1.3
+```
+### 4. in terminal 1, Run Ryu Controller
+```bash
+ryu-manager controller/static_controller.py
+```
+### 5. in terminal 2, Run Mininet Topology
+```bash
+sudo mn --custom topology/topo.py --topo static --controller remote
+```
+### 6. Testing Commands (Inside Mininet)
+```bash
+nodes
+pingall
+sh ovs-ofctl dump-flows s1
+sh ovs-ofctl dump-flows s2
+h2 iperf -s &
+h1 iperf -c h2
+```
+### 7. (EXTRA) faiure scenario, by stopping the Run Ryu Controller
+```bash
+just pressing Ctrl + C
+```
+cleaning previous instances
+```bash
+sudo mn -c
+```
+and running mininet again ,
+```bash
+sudo mn --custom topology/topo.py --topo static --controller remote
+```
+now test connectivity only to get ping failing cause of flow rules
+```bash
+pingall
+```
+
+
 
 The `iperf` tool is used to measure throughput between hosts.  
 The output shows successful connection and data transfer between h1 and h2.
